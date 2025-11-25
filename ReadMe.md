@@ -10,6 +10,11 @@ The endpoints of this app are:
 - `"/jobs/status/{job_id}"`: get the status of a job
 - `"/job_queue/status"`: returns information about all jobs in the queue
 
+## Inputs and Outputs
+All of the input and output fields of the original fal Wan 2.2 are implemented as in: [https://fal.ai/models/fal-ai/wan/v2.2-a14b/image-to-image/api](https://fal.ai/models/fal-ai/wan/v2.2-a14b/image-to-image/api)
+
+Input and output images are downloaded and uploaded to fal before exposing to the Wan (fal) api and before returning the result to client. 
+
 ## Retry Mechanism
 For reliability, in case the api server is down for different times, an execution queue is implemented.
 Each incoming request is saved as a job in the queue with input parameters and capability (t2i or i2i). 
@@ -20,11 +25,6 @@ and each time the wait time is doubled to give api more time to revive. Wait tim
 
 The endpoints return results immediately with job_id that can be used later for status check. 
 The queue consumer runs in the background and executes and retries jobs.
-
-## Inputs and Outputs
-All of the input and output fields of the original fal Wan 2.2 are implemented as in: [https://fal.ai/models/fal-ai/wan/v2.2-a14b/image-to-image/api](https://fal.ai/models/fal-ai/wan/v2.2-a14b/image-to-image/api)
-
-Input and output images are downloaded and uploaded to fal before exposing to the Wan (fal) api and before returning the result to client. 
 
 ### Tests
 The api was tested with Bruno and the files are included in the fal-bruno folder. You can find tests for all of the endpoints, but will have to change the url as the hash changes on different runs.
