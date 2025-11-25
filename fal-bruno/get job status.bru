@@ -1,0 +1,16 @@
+meta {
+  name: get job status
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://queue.fal.run/Amiineh/903a30b5-d34b-4a06-b3d1-2fd5cb8a9d60/jobs/status/5a09c2fe-0314-4837-82f8-04006bab204d
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

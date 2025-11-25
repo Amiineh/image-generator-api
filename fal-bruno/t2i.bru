@@ -1,0 +1,33 @@
+meta {
+  name: t2i
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://queue.fal.run/Amiineh/903a30b5-d34b-4a06-b3d1-2fd5cb8a9d60/t2i
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json, */*;q=0.5
+}
+
+body:json {
+  {"prompt": "A cactus stuffed toy",
+  "seed": 147,
+  "enable_safety_checker": false,
+  "enable_output_safety_checker":false,
+  "enable_prompt_expansion":true,
+  "image_size": {
+    "width": 256, "height": 512
+  }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
